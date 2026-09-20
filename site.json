@@ -1,0 +1,94 @@
+{
+  "site": {
+    "name": "The March Group",
+    "description": "The March Group is backing exponential technology platforms for human and planetary health, and a new food paradigm.",
+    "formAction": ""
+  },
+  "nav": [
+    { "label": "People", "page": "people.html", "anchor": "#people" },
+    { "label": "Portfolio", "page": "portfolio.html", "anchor": "#portfolio" },
+    { "label": "Ecosystem", "page": "ecosystem.html", "anchor": "#ecosystem" },
+    { "label": "Accelerator", "href": "https://iedo.ucdavis.edu/aggie-venture-accelerator" }
+  ],
+  "hero": {
+    "headline": "Backing the platforms that will feed and heal the world.",
+    "food": "Food",
+    "medicine": "Medicine",
+    "splitLine": "Built apart. Now converging.",
+    "merged": "Food & medicine, one system.",
+    "sub": "The March Group backs exponential technology platforms for human and planetary health, and for a new food paradigm."
+  },
+  "sections": {
+    "themes": "Precision nutrition. Intelligent health. Food & medicine.",
+    "ecosystem": "A world-class ecosystem, anchored in the UC system.",
+    "network": "Our strategic global network",
+    "portfolio": "Portfolio",
+    "people": "We are innovation pioneers.",
+    "news": "In the loop",
+    "contact": "Send us a deal.",
+    "contactSub": "Pitch us at investment@marchfund.com, or join the mailing list for news and ideas.",
+    "peoplePage": "People",
+    "portfolioPage": "Portfolio",
+    "ecosystemPage": "Ecosystem"
+  },
+  "themes": [
+    { "title": "Precision nutrition", "text": "Nutrition tailored to the individual and measured with real data.", "media": "assets/theme-precision-nutrition.jpg", "bg": "#F3D66B", "fg": "#16271D" },
+    { "title": "Intelligent health", "text": "Technology that makes health proactive, personal and predictive.", "media": "assets/theme-intelligent-health.jpg", "bg": "#E5482D", "fg": "#FFF9F0" },
+    { "title": "Food & medicine", "text": "A food system that prevents and treats, not only feeds.", "media": "assets/theme-food-medicine.jpg", "bg": "#1E3A2B", "fg": "#EAF0DF" }
+  ],
+  "stats": [
+    { "prefix": "#", "number": 1, "suffix": "", "label": "US university for utility patents" },
+    { "prefix": "$", "number": 8, "suffix": "B", "label": "annual research funding" },
+    { "prefix": "", "number": 1.4, "suffix": "k+", "label": "startups founded" },
+    { "prefix": "", "number": 250, "suffix": "", "label": "UC-linked $1B+ companies" },
+    { "prefix": "", "number": 5, "suffix": "", "label": "inventions per day" }
+  ],
+  "ecosystem": {
+    "anchors": [
+      { "short": "UC Davis", "name": "University of California, Davis", "url": "https://www.ucdavis.edu/" },
+      { "short": "IIFH", "name": "UC Davis Innovation Institute for Food and Health", "url": "https://foodandhealth.ucdavis.edu/" },
+      { "short": "AIFS", "name": "AIFS at UC Davis", "url": "https://aifs.ucdavis.edu/" }
+    ],
+    "partners": [
+      { "short": "Novo Nordisk Foundation", "name": "Novo Nordisk Foundation", "url": "https://novonordiskfonden.dk/en/" },
+      { "short": "BII", "name": "BII", "url": "https://bii.dk/" },
+      { "short": "LLNL", "name": "Lawrence Livermore National Laboratory", "url": "https://www.llnl.gov/" },
+      { "short": "PIPA", "name": "PIPA", "url": "https://pipacorp.com/" },
+      { "short": "National Academies", "name": "National Academies", "url": "https://www.nationalacademies.org/" },
+      { "short": "MISTA", "name": "MISTA", "url": "https://mistafood.com/" },
+      { "short": "CFR", "name": "Council on Foreign Relations", "url": "https://www.cfr.org/" },
+      { "short": "Beam Circular", "name": "Beam Circular", "url": "https://www.beamcircular.org/" },
+      { "short": "HKUST", "name": "HKUST", "url": "https://hkust.edu.hk/" }
+    ]
+  },
+  "portfolio": [
+    { "name": "Engage3", "url": "https://www.engage3.com/", "media": "assets/portfolio-engage3.jpg", "note": "" },
+    { "name": "Digestiva / Amplifye", "url": "https://www.digestiva.com/", "media": "assets/portfolio-digestiva.jpg", "note": "" },
+    { "name": "Rivalz", "url": "https://rivalzsnacks.com/", "media": "assets/portfolio-rivalz.jpg", "note": "" },
+    { "name": "ZeroAvia", "url": "https://zeroavia.com/", "media": "assets/portfolio-zeroavia.jpg", "note": "" },
+    { "name": "VinZymes", "url": "https://vinzymes.com/", "media": "assets/portfolio-vinzymes.jpg", "note": "" },
+    { "name": "EvodiaBio", "url": "https://evodiabio.com/", "media": "assets/portfolio-evodiabio.jpg", "note": "" },
+    { "name": "Number8Bio", "url": "https://www.number8.bio/", "media": "assets/portfolio-number8bio.jpg", "note": "" },
+    { "name": "Pharm to Food", "url": "https://www.pharmtofood.com/", "media": "assets/portfolio-pharmtofood.jpg", "note": "" },
+    { "name": "ThriveSpan", "url": "https://www.marchgp.com/portfolio", "media": "assets/portfolio-thrivespan.jpg", "note": "" },
+    { "name": "SinewUs", "url": "https://sinewus.com/", "media": "assets/portfolio-sinewus.jpg", "note": "" }
+  ],
+  "people": [
+    { "name": "Harold Schmitz, Ph.D.", "role": "", "bio": "", "photo": "assets/people/harold-schmitz.jpg" },
+    { "name": "Christopher Lai", "role": "", "bio": "", "photo": "assets/people/christopher-lai.jpg" },
+    { "name": "Stephen Badger", "role": "", "bio": "", "photo": "assets/people/stephen-badger.jpg" },
+    { "name": "Tony Lau, DBA", "role": "", "bio": "", "photo": "assets/people/tony-lau.jpg" }
+  ],
+  "news": [
+    { "title": "Humann names Dr. Harold Schmitz Science Advisory Chair and announces a nutrition research partnership with the UC Davis Innovation Institute for Food & Health", "date": "Latest", "tag": "", "url": "https://www.marchgp.com/post/humann-names-dr-harold-schmitz-science-advisory-chair-and-announces-nutrition-research-partnership" },
+    { "title": "Aggie Venture Accelerator welcomes its inaugural cohort of life science startups", "date": "Jul 15", "tag": "TMG News", "url": "https://www.marchgp.com/post/aggie-venture-accelerator-welcomes-inaugural-cohort-of-life-science-startupscopy-of-uc-davis-launche" },
+    { "title": "Backing the future of savory snacking: The March Group leads Rivalz Series A", "date": "Jul 6", "tag": "Portfolio Updates", "url": "https://www.marchgp.com/post/backing-the-future-of-savory-snacking-the-march-group-leads-rivalz-series-a" }
+  ],
+  "contact": {
+    "press": "contact@marchfund.com",
+    "deals": "investment@marchfund.com",
+    "linkedin": "https://www.linkedin.com/company/themarchgroup/",
+    "privacy": "https://www.marchgp.com/privacy-policy",
+    "terms": "https://www.marchgp.com/terms-of-use"
+  }
+}
