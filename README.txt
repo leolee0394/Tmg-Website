@@ -1,0 +1,23 @@
+Drop files here. Names below match content/site.json. .mp4/.webm = looping muted video, anything else = image.
+
+theme-precision-nutrition.jpg   (or .mp4)  large scene, shown in an organic shape
+theme-intelligent-health.jpg
+theme-food-medicine.jpg
+
+portfolio-engage3.jpg
+portfolio-digestiva.jpg
+portfolio-rivalz.jpg
+portfolio-zeroavia.jpg
+portfolio-vinzymes.jpg
+portfolio-evodiabio.jpg
+portfolio-number8bio.jpg
+portfolio-pharmtofood.jpg
+portfolio-thrivespan.jpg
+portfolio-sinewus.jpg
+
+people/harold-schmitz.jpg       portrait, 4:5 works best
+people/christopher-lai.jpg
+people/stephen-badger.jpg
+people/tony-lau.jpg
+
+To use a different name or format, change the "media" or "photo" path in content/site.json.
