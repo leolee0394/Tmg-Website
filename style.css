@@ -1,0 +1,156 @@
+/* The March Group, Organic Modernism, Tier 3 */
+:root{
+  --lichen:#E4E9D8; --moss:#1E3A2B; --leaf:#2F6B4B; --tomato:#E5482D; --butter:#F3D66B; --paper:#F7F8F1;
+  --ink:#16271D; --muted:#4F6055; --line:#BFC9B0; --blend:multiply;
+  --pagebg:var(--lichen); --pagefg:var(--ink);
+  --pad:clamp(20px,5vw,72px);
+  --serif:"Young Serif",Georgia,serif; --sans:"DM Sans",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--lichen:#14241B; --moss:#0B1510; --leaf:#3F9A73; --paper:#1B2E23; --ink:#EAF0DF; --muted:#A7B7A3; --line:#2C4436; --blend:screen}
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0; background:var(--pagebg); color:var(--pagefg); font:400 18px/1.6 var(--sans); -webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--tomato); outline-offset:3px}
+h1,h2,h3{font-family:var(--serif); font-weight:400; letter-spacing:-.01em; margin:0}
+p{margin:0}
+.btn{display:inline-block; padding:14px 26px; border-radius:999px; background:var(--tomato); color:#fff; text-decoration:none; font-weight:700; border:0; cursor:pointer; font-family:var(--sans); font-size:1rem}
+.btn:hover{background:var(--butter); color:#16271D}
+.sec-h{font-size:clamp(1.9rem,4.6vw,3.6rem); line-height:1.05; max-width:18em}
+
+/* header */
+.site-header{position:fixed; inset:0 0 auto 0; z-index:50}
+.bar{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; padding:12px var(--pad); background:color-mix(in srgb,var(--pagebg) 80%,transparent); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px)}
+.brand{display:flex; align-items:center; gap:10px; text-decoration:none; font:400 1.15rem var(--serif)}
+.brand svg{width:34px; height:24px}
+.bar nav{display:flex; flex-wrap:wrap; gap:clamp(12px,2.4vw,26px); align-items:center; font-weight:700; font-size:.95rem}
+.bar nav a{text-decoration:none} .bar nav a:hover{color:var(--tomato)}
+.bar nav a.nav-cta{background:var(--pagefg); color:var(--pagebg); padding:4px 16px; border-radius:999px}
+.bar nav a.nav-cta:hover{background:var(--tomato); color:#fff}
+
+/* media slots + masks */
+.slot{position:relative; overflow:hidden; background:color-mix(in srgb,var(--pagefg) 9%,transparent)}
+.slot img,.slot video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+.slot .ph{position:absolute; inset:0; display:grid; place-items:center; text-align:center; padding:14%; font-size:.82rem; font-weight:700; opacity:.65; background:repeating-linear-gradient(45deg,transparent 0 12px,color-mix(in srgb,var(--pagefg) 8%,transparent) 12px 13px)}
+.mk1{clip-path:url(#m1)} .mk2{clip-path:url(#m2)} .mk3{clip-path:url(#m3)} .mk4{clip-path:url(#m4)}
+
+/* opening story (pinned) */
+.story{position:relative; height:100vh; height:100svh; min-height:560px; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.15fr); overflow:hidden}
+.caps{position:relative}
+.cap{position:absolute; inset:0; padding:72px var(--pad) 0 var(--pad); display:flex; flex-direction:column; justify-content:center; gap:22px}
+.cap1 h1{font-size:clamp(2.1rem,4.6vw,4.4rem); line-height:1.04}
+.hint{font-weight:700; font-size:.9rem; color:var(--muted)}
+.split{display:flex; align-items:center; gap:16px; font:400 clamp(2.6rem,6vw,5.4rem)/1 var(--serif)}
+.dot{width:.5em; height:.5em; border-radius:50%; flex:none}
+.dot.a{background:var(--leaf)} .dot.b{background:var(--tomato)}
+.line{font-size:1.15rem; color:var(--muted)}
+.cap3 h2{font-size:clamp(2.1rem,4.6vw,4.2rem); line-height:1.05}
+.cap3 .sub{max-width:28em; color:var(--muted); font-size:clamp(1rem,1.4vw,1.2rem)}
+.cap3 .btn{align-self:flex-start}
+.stage{position:relative; padding-top:56px}
+.stage svg{width:100%; height:100%; display:block}
+.stage path{mix-blend-mode:var(--blend)}
+#shA{fill:var(--leaf)} #shB{fill:var(--tomato)}
+.reduce .cap2,.reduce .cap3{display:none}
+
+/* theme scenes */
+.scene{min-height:100vh; min-height:100svh; display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:clamp(24px,5vw,80px); padding:clamp(80px,10vw,128px) var(--pad)}
+.scene:nth-child(even) .scene-media{order:-1}
+.scene h2{font-size:clamp(2.4rem,6.4vw,5.6rem); line-height:1}
+.scene p{margin-top:20px; max-width:22em; font-size:clamp(1.1rem,1.6vw,1.4rem)}
+.scene .slot{width:min(100%,560px); aspect-ratio:1/1; margin:0 auto}
+.themes-intro{padding:clamp(72px,10vw,128px) var(--pad) 0}
+
+/* ecosystem */
+.eco{padding:clamp(72px,10vw,128px) var(--pad)}
+.stats{display:grid; grid-template-columns:repeat(5,1fr); gap:clamp(16px,3vw,32px); margin:clamp(32px,5vw,56px) 0 clamp(40px,6vw,80px)}
+.stat b{display:block; font:400 clamp(2.4rem,5.4vw,4.6rem)/1 var(--serif); color:var(--tomato)}
+.stat span{display:block; margin-top:8px; font-size:.95rem; line-height:1.35; opacity:.85}
+.net-h{font-size:clamp(1.4rem,2.6vw,2rem); margin-bottom:8px}
+#net{width:100%; height:auto; display:block; max-width:1100px; margin:0 auto}
+#net .edge{stroke:currentColor; stroke-opacity:.35; stroke-width:1.5; stroke-dasharray:4 6}
+#net .node{transform-box:fill-box; transform-origin:center; cursor:pointer}
+#net .node rect{fill:var(--paper); stroke:var(--paper); stroke-width:2; transition:fill .15s}
+#net .node text{font:700 19px var(--sans); fill:var(--ink); pointer-events:none}
+#net .node.a rect{fill:var(--butter)} #net .node.a text{fill:#16271D}
+#net .node:hover rect,#net .node:focus rect{fill:var(--tomato)} #net .node:hover text,#net .node:focus text{fill:#fff}
+#net .hub circle{fill:var(--tomato)} #net .hub text{font:400 30px var(--serif); fill:#fff}
+.cap-net{min-height:1.6em; text-align:center; font-weight:700; opacity:.8; margin-top:4px}
+
+/* portfolio (pinned horizontal on desktop) */
+.folio{min-height:100vh; min-height:100svh; display:flex; flex-direction:column; justify-content:center; gap:clamp(24px,4vw,48px); padding:clamp(88px,10vw,120px) 0 clamp(40px,6vw,72px); overflow:hidden}
+.folio-head{padding:0 var(--pad)}
+.track{display:flex; gap:clamp(20px,3vw,44px); padding:0 var(--pad); overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none}
+.track::-webkit-scrollbar{display:none}
+.folio.pinned .track{overflow:visible; scroll-snap-type:none; width:max-content; padding-right:calc(var(--pad) + 8vw)}
+.card{flex:none; width:clamp(240px,32vw,440px); text-decoration:none; scroll-snap-align:start}
+.card .slot{aspect-ratio:1/1.08; margin-bottom:14px; transition:transform .3s}
+.card:hover .slot{transform:rotate(-2deg) scale(1.02)}
+.card h3{font-size:clamp(1.4rem,2.4vw,2rem); line-height:1.1}
+.card small{display:block; margin-top:4px; opacity:.75}
+
+/* people */
+.people{padding:clamp(72px,10vw,128px) var(--pad)}
+.pgrid{display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(16px,3vw,40px); margin-top:clamp(28px,5vw,56px)}
+.person{background:none; border:0; padding:0; text-align:left; color:inherit; font:inherit; cursor:pointer}
+.person .slot{aspect-ratio:4/5; margin-bottom:14px; transition:transform .3s}
+.person:hover .slot{transform:scale(1.03)}
+.person h3{font-size:1.3rem; line-height:1.15}
+.person small{display:block; opacity:.75}
+dialog{border:0; border-radius:24px; padding:30px; max-width:min(520px,92vw); background:var(--paper); color:var(--ink)}
+dialog::backdrop{background:rgba(10,20,14,.55)}
+dialog h3{font-size:1.8rem; margin-bottom:6px} dialog p{margin-top:12px} dialog .btn{margin-top:20px}
+
+/* news */
+.news-sec{padding:0 var(--pad) clamp(72px,10vw,128px)}
+.nlist{margin-top:clamp(20px,4vw,40px); border-top:2px solid currentColor}
+.nlist a{display:grid; grid-template-columns:9rem 1fr; gap:16px; padding:20px 0; border-bottom:1px solid var(--line); text-decoration:none}
+.nlist small{font-weight:700; opacity:.7}
+.nlist strong{font:400 clamp(1.15rem,2vw,1.6rem)/1.25 var(--serif)}
+.nlist a:hover strong{color:var(--tomato)}
+
+/* close */
+.close{padding:clamp(80px,12vw,160px) var(--pad)}
+.close h2{font-size:clamp(2.6rem,8vw,7rem); line-height:.98}
+.close .lede{margin-top:20px; max-width:30em; font-size:1.2rem; opacity:.85}
+.signup{display:grid; grid-template-columns:repeat(2,1fr); gap:12px; max-width:720px; margin-top:40px}
+.signup label{display:block; font-weight:700; font-size:.88rem; margin-bottom:4px}
+.signup input{width:100%; padding:13px 14px; border:2px solid var(--butter); border-radius:10px; background:transparent; color:inherit; font:inherit}
+.signup .btn{grid-column:1/-1; justify-self:start; background:var(--butter); color:#16271D}
+.signup .btn:hover{background:var(--tomato); color:#fff}
+.signup .ok{grid-column:1/-1; min-height:1.6em; font-weight:700}
+footer{background:var(--moss); color:#EAF0DF; padding:40px var(--pad) 56px; border-top:1px solid rgba(234,240,223,.2)}
+footer .cols{display:flex; flex-wrap:wrap; justify-content:space-between; gap:24px; font-size:.95rem}
+footer p{margin-bottom:4px}
+
+/* subpages */
+.sub-page main{padding:clamp(96px,12vw,150px) var(--pad) 72px}
+.sub-page h1{font-size:clamp(2.6rem,7vw,5.6rem); line-height:1; margin-bottom:clamp(28px,5vw,56px)}
+.sub-page .pgrid{margin-top:0}
+.sub-page .person{cursor:default}
+.sub-page .person p{margin-top:8px; font-size:.98rem; max-width:24em}
+.sub-page .pfgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(20px,3vw,44px)}
+.sub-page .pfgrid .card{width:auto}
+.plain-list{list-style:none; margin:0; padding:0; columns:2; column-gap:40px}
+.plain-list li{padding:10px 0; border-bottom:1px solid var(--line); break-inside:avoid}
+.plain-list a{text-decoration:none} .plain-list a:hover{color:var(--tomato)}
+.sub-page h2{font-size:clamp(1.6rem,3vw,2.4rem); margin:clamp(40px,6vw,72px) 0 16px}
+
+@media (max-width:860px){
+  .story{grid-template-columns:1fr; grid-template-rows:minmax(0,46%) minmax(0,54%)}
+  .cap{padding-top:64px; gap:14px} .stage{padding-top:0}
+  .cap3 .sub{display:none} .split{font-size:clamp(2.2rem,10vw,3.4rem)}
+  .scene{grid-template-columns:1fr; min-height:auto; padding-top:80px; padding-bottom:80px}
+  .scene:nth-child(even) .scene-media{order:0}
+  .stats{grid-template-columns:1fr 1fr}
+  .pgrid{grid-template-columns:1fr 1fr}
+  .folio{min-height:auto}
+  .sub-page .pfgrid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .signup{grid-template-columns:1fr} .nlist a{grid-template-columns:1fr; gap:4px}
+  .sub-page .pfgrid{grid-template-columns:1fr} .plain-list{columns:1} .bar nav{font-size:.85rem; gap:10px}
+}
+@media (prefers-reduced-motion:reduce){.card:hover .slot,.person:hover .slot{transform:none}}
