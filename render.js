@@ -171,6 +171,6 @@
   }
 
   if (window.TMG_DATA) apply(window.TMG_DATA);
-  else fetch('content/site.json').then(function (r) { return r.json(); }).then(apply)
-    .catch(function (e) { document.body.insertAdjacentHTML('afterbegin', '<p style="padding:90px 24px">Could not load content/site.json. Serve the folder over http (see README) instead of opening the file directly.</p>'); console.error(e); });
+  else fetch('site.json').then(function (r) { return r.json(); }).then(apply)
+    .catch(function (e) { document.body.insertAdjacentHTML('afterbegin', '<p style="padding:90px 24px">Could not load site.json. Serve the folder over http (see README) instead of opening the file directly.</p>'); console.error(e); });
 })();

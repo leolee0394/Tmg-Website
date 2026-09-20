@@ -32,9 +32,9 @@
     "ecosystemPage": "Ecosystem"
   },
   "themes": [
-    { "title": "Precision nutrition", "text": "Nutrition tailored to the individual and measured with real data.", "media": "assets/theme-precision-nutrition.jpg", "bg": "#F3D66B", "fg": "#16271D" },
-    { "title": "Intelligent health", "text": "Technology that makes health proactive, personal and predictive.", "media": "assets/theme-intelligent-health.jpg", "bg": "#E5482D", "fg": "#FFF9F0" },
-    { "title": "Food & medicine", "text": "A food system that prevents and treats, not only feeds.", "media": "assets/theme-food-medicine.jpg", "bg": "#1E3A2B", "fg": "#EAF0DF" }
+    { "title": "Precision nutrition", "text": "Nutrition tailored to the individual and measured with real data.", "media": "theme-precision-nutrition.jpg", "bg": "#F3D66B", "fg": "#16271D" },
+    { "title": "Intelligent health", "text": "Technology that makes health proactive, personal and predictive.", "media": "theme-intelligent-health.jpg", "bg": "#E5482D", "fg": "#FFF9F0" },
+    { "title": "Food & medicine", "text": "A food system that prevents and treats, not only feeds.", "media": "theme-food-medicine.jpg", "bg": "#1E3A2B", "fg": "#EAF0DF" }
   ],
   "stats": [
     { "prefix": "#", "number": 1, "suffix": "", "label": "US university for utility patents" },
@@ -62,22 +62,22 @@
     ]
   },
   "portfolio": [
-    { "name": "Engage3", "url": "https://www.engage3.com/", "media": "assets/portfolio-engage3.jpg", "note": "" },
-    { "name": "Digestiva / Amplifye", "url": "https://www.digestiva.com/", "media": "assets/portfolio-digestiva.jpg", "note": "" },
-    { "name": "Rivalz", "url": "https://rivalzsnacks.com/", "media": "assets/portfolio-rivalz.jpg", "note": "" },
-    { "name": "ZeroAvia", "url": "https://zeroavia.com/", "media": "assets/portfolio-zeroavia.jpg", "note": "" },
-    { "name": "VinZymes", "url": "https://vinzymes.com/", "media": "assets/portfolio-vinzymes.jpg", "note": "" },
-    { "name": "EvodiaBio", "url": "https://evodiabio.com/", "media": "assets/portfolio-evodiabio.jpg", "note": "" },
-    { "name": "Number8Bio", "url": "https://www.number8.bio/", "media": "assets/portfolio-number8bio.jpg", "note": "" },
-    { "name": "Pharm to Food", "url": "https://www.pharmtofood.com/", "media": "assets/portfolio-pharmtofood.jpg", "note": "" },
-    { "name": "ThriveSpan", "url": "https://www.marchgp.com/portfolio", "media": "assets/portfolio-thrivespan.jpg", "note": "" },
-    { "name": "SinewUs", "url": "https://sinewus.com/", "media": "assets/portfolio-sinewus.jpg", "note": "" }
+    { "name": "Engage3", "url": "https://www.engage3.com/", "media": "portfolio-engage3.jpg", "note": "" },
+    { "name": "Digestiva / Amplifye", "url": "https://www.digestiva.com/", "media": "portfolio-digestiva.jpg", "note": "" },
+    { "name": "Rivalz", "url": "https://rivalzsnacks.com/", "media": "portfolio-rivalz.jpg", "note": "" },
+    { "name": "ZeroAvia", "url": "https://zeroavia.com/", "media": "portfolio-zeroavia.jpg", "note": "" },
+    { "name": "VinZymes", "url": "https://vinzymes.com/", "media": "portfolio-vinzymes.jpg", "note": "" },
+    { "name": "EvodiaBio", "url": "https://evodiabio.com/", "media": "portfolio-evodiabio.jpg", "note": "" },
+    { "name": "Number8Bio", "url": "https://www.number8.bio/", "media": "portfolio-number8bio.jpg", "note": "" },
+    { "name": "Pharm to Food", "url": "https://www.pharmtofood.com/", "media": "portfolio-pharmtofood.jpg", "note": "" },
+    { "name": "ThriveSpan", "url": "https://www.marchgp.com/portfolio", "media": "portfolio-thrivespan.jpg", "note": "" },
+    { "name": "SinewUs", "url": "https://sinewus.com/", "media": "portfolio-sinewus.jpg", "note": "" }
   ],
   "people": [
-    { "name": "Harold Schmitz, Ph.D.", "role": "", "bio": "", "photo": "assets/people/harold-schmitz.jpg" },
-    { "name": "Christopher Lai", "role": "", "bio": "", "photo": "assets/people/christopher-lai.jpg" },
-    { "name": "Stephen Badger", "role": "", "bio": "", "photo": "assets/people/stephen-badger.jpg" },
-    { "name": "Tony Lau, DBA", "role": "", "bio": "", "photo": "assets/people/tony-lau.jpg" }
+    { "name": "Harold Schmitz, Ph.D.", "role": "", "bio": "", "photo": "harold-schmitz.jpg" },
+    { "name": "Christopher Lai", "role": "", "bio": "", "photo": "christopher-lai.jpg" },
+    { "name": "Stephen Badger", "role": "", "bio": "", "photo": "stephen-badger.jpg" },
+    { "name": "Tony Lau, DBA", "role": "", "bio": "", "photo": "tony-lau.jpg" }
   ],
   "news": [
     { "title": "Humann names Dr. Harold Schmitz Science Advisory Chair and announces a nutrition research partnership with the UC Davis Innovation Institute for Food & Health", "date": "Latest", "tag": "", "url": "https://www.marchgp.com/post/humann-names-dr-harold-schmitz-science-advisory-chair-and-announces-nutrition-research-partnership" },
