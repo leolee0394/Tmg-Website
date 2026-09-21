@@ -1,4 +1,5 @@
-Drop files here. Names below match content/site.json. .mp4/.webm = looping muted video, anything else = image.
+OPTIONAL. Every slot already shows generated artwork, and portraits/logos load from the old site and public icons.
+To replace any of them, drop a file here with the name below and set the "media" / "photo" value in content/site.json to that name. .mp4/.webm = looping muted video, anything else = image.
 
 theme-precision-nutrition.jpg   (or .mp4)  large scene, shown in an organic shape
 theme-intelligent-health.jpg

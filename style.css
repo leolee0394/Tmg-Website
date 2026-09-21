@@ -1,13 +1,15 @@
 /* The March Group, Organic Modernism, Tier 3 */
 :root{
-  --lichen:#E4E9D8; --moss:#1E3A2B; --leaf:#2F6B4B; --tomato:#E5482D; --butter:#F3D66B; --paper:#F7F8F1;
-  --ink:#16271D; --muted:#4F6055; --line:#BFC9B0; --blend:multiply;
+  --lichen:#EDF1F4; --moss:#0E2C3E; --navy:#0E2C3E; --leaf:#1F4B66; --tomato:#EE9436; --butter:#F9DDB8; --paper:#FFFFFF;
+  --ink:#0E2C3E; --muted:#4A6272; --line:#C9D5DC; --blend:multiply;
+  --scene-a:#F7E9D6; --scene-b:#DCE6ED; --scene-c:#F3F6F8; --eco:#D9E4EB; --close:#0E2C3E;
   --pagebg:var(--lichen); --pagefg:var(--ink);
   --pad:clamp(20px,5vw,72px);
   --serif:"Young Serif",Georgia,serif; --sans:"DM Sans",system-ui,sans-serif;
 }
 @media (prefers-color-scheme:dark){
-  :root{--lichen:#14241B; --moss:#0B1510; --leaf:#3F9A73; --paper:#1B2E23; --ink:#EAF0DF; --muted:#A7B7A3; --line:#2C4436; --blend:screen}
+  :root{--lichen:#0A1F2C; --moss:#071722; --leaf:#5FA3C7; --paper:#12303F; --ink:#E9F0F4; --muted:#9FB4C0; --line:#20404F; --blend:screen;
+    --scene-a:#1E2A2F; --scene-b:#12293A; --scene-c:#0F2533; --eco:#0B1A25; --close:#061620}
 }
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -16,24 +18,26 @@ a{color:inherit}
 :focus-visible{outline:3px solid var(--tomato); outline-offset:3px}
 h1,h2,h3{font-family:var(--serif); font-weight:400; letter-spacing:-.01em; margin:0}
 p{margin:0}
-.btn{display:inline-block; padding:14px 26px; border-radius:999px; background:var(--tomato); color:#fff; text-decoration:none; font-weight:700; border:0; cursor:pointer; font-family:var(--sans); font-size:1rem}
-.btn:hover{background:var(--butter); color:#16271D}
+.btn{display:inline-block; padding:14px 26px; border-radius:999px; background:var(--tomato); color:var(--navy); text-decoration:none; font-weight:700; border:0; cursor:pointer; font-family:var(--sans); font-size:1rem}
+.btn:hover{background:var(--butter); color:var(--navy)}
 .sec-h{font-size:clamp(1.9rem,4.6vw,3.6rem); line-height:1.05; max-width:18em}
 
 /* header */
 .site-header{position:fixed; inset:0 0 auto 0; z-index:50}
 .bar{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; padding:12px var(--pad); background:color-mix(in srgb,var(--pagebg) 80%,transparent); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px)}
 .brand{display:flex; align-items:center; gap:10px; text-decoration:none; font:400 1.15rem var(--serif)}
-.brand svg{width:34px; height:24px}
+.brand svg{width:26px; height:26px}
 .bar nav{display:flex; flex-wrap:wrap; gap:clamp(12px,2.4vw,26px); align-items:center; font-weight:700; font-size:.95rem}
 .bar nav a{text-decoration:none} .bar nav a:hover{color:var(--tomato)}
 .bar nav a.nav-cta{background:var(--pagefg); color:var(--pagebg); padding:4px 16px; border-radius:999px}
-.bar nav a.nav-cta:hover{background:var(--tomato); color:#fff}
+.bar nav a.nav-cta:hover{background:var(--tomato); color:var(--navy)}
 
 /* media slots + masks */
 .slot{position:relative; overflow:hidden; background:color-mix(in srgb,var(--pagefg) 9%,transparent)}
+.slot .ph{position:absolute; inset:0} .slot .ph svg{width:100%; height:100%; display:block}
+.slot.logo{background:var(--paper)} .slot.logo img{object-fit:contain; padding:17%}
+.person .slot img{object-position:50% 20%}
 .slot img,.slot video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
-.slot .ph{position:absolute; inset:0; display:grid; place-items:center; text-align:center; padding:14%; font-size:.82rem; font-weight:700; opacity:.65; background:repeating-linear-gradient(45deg,transparent 0 12px,color-mix(in srgb,var(--pagefg) 8%,transparent) 12px 13px)}
 .mk1{clip-path:url(#m1)} .mk2{clip-path:url(#m2)} .mk3{clip-path:url(#m3)} .mk4{clip-path:url(#m4)}
 
 /* opening story (pinned) */
@@ -66,17 +70,17 @@ p{margin:0}
 /* ecosystem */
 .eco{padding:clamp(72px,10vw,128px) var(--pad)}
 .stats{display:grid; grid-template-columns:repeat(5,1fr); gap:clamp(16px,3vw,32px); margin:clamp(32px,5vw,56px) 0 clamp(40px,6vw,80px)}
-.stat b{display:block; font:400 clamp(2.4rem,5.4vw,4.6rem)/1 var(--serif); color:var(--tomato)}
+.stat b{display:block; font:400 clamp(2.4rem,5.4vw,4.6rem)/1 var(--serif); color:var(--leaf)}
 .stat span{display:block; margin-top:8px; font-size:.95rem; line-height:1.35; opacity:.85}
 .net-h{font-size:clamp(1.4rem,2.6vw,2rem); margin-bottom:8px}
 #net{width:100%; height:auto; display:block; max-width:1100px; margin:0 auto}
 #net .edge{stroke:currentColor; stroke-opacity:.35; stroke-width:1.5; stroke-dasharray:4 6}
 #net .node{transform-box:fill-box; transform-origin:center; cursor:pointer}
-#net .node rect{fill:var(--paper); stroke:var(--paper); stroke-width:2; transition:fill .15s}
+#net .node rect{fill:var(--paper); stroke:var(--ink); stroke-width:1.5; transition:fill .15s}
 #net .node text{font:700 19px var(--sans); fill:var(--ink); pointer-events:none}
-#net .node.a rect{fill:var(--butter)} #net .node.a text{fill:#16271D}
-#net .node:hover rect,#net .node:focus rect{fill:var(--tomato)} #net .node:hover text,#net .node:focus text{fill:#fff}
-#net .hub circle{fill:var(--tomato)} #net .hub text{font:400 30px var(--serif); fill:#fff}
+#net .node.a rect{fill:var(--butter)} #net .node.a text{fill:var(--navy)}
+#net .node:hover rect,#net .node:focus rect{fill:var(--tomato)} #net .node:hover text,#net .node:focus text{fill:var(--navy)}
+#net .hub circle{fill:var(--tomato)} #net .hub text{font:400 30px var(--serif); fill:var(--navy)}
 .cap-net{min-height:1.6em; text-align:center; font-weight:700; opacity:.8; margin-top:4px}
 
 /* portfolio (pinned horizontal on desktop) */
@@ -117,11 +121,10 @@ dialog h3{font-size:1.8rem; margin-bottom:6px} dialog p{margin-top:12px} dialog 
 .close .lede{margin-top:20px; max-width:30em; font-size:1.2rem; opacity:.85}
 .signup{display:grid; grid-template-columns:repeat(2,1fr); gap:12px; max-width:720px; margin-top:40px}
 .signup label{display:block; font-weight:700; font-size:.88rem; margin-bottom:4px}
-.signup input{width:100%; padding:13px 14px; border:2px solid var(--butter); border-radius:10px; background:transparent; color:inherit; font:inherit}
-.signup .btn{grid-column:1/-1; justify-self:start; background:var(--butter); color:#16271D}
-.signup .btn:hover{background:var(--tomato); color:#fff}
+.signup input{width:100%; padding:13px 14px; border:2px solid color-mix(in srgb,currentColor 55%,transparent); border-radius:10px; background:transparent; color:inherit; font:inherit}
+.signup .btn{grid-column:1/-1; justify-self:start}
 .signup .ok{grid-column:1/-1; min-height:1.6em; font-weight:700}
-footer{background:var(--moss); color:#EAF0DF; padding:40px var(--pad) 56px; border-top:1px solid rgba(234,240,223,.2)}
+footer{background:var(--close); color:#fff; padding:40px var(--pad) 56px}
 footer .cols{display:flex; flex-wrap:wrap; justify-content:space-between; gap:24px; font-size:.95rem}
 footer p{margin-bottom:4px}
 

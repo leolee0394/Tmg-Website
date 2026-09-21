@@ -32,14 +32,42 @@
     '<clipPath id="m4" clipPathUnits="objectBoundingBox"><path d="M0.3,0.08 C0.5,-0.02 0.8,0.03 0.9,0.25 C1,0.45 0.98,0.7 0.82,0.88 C0.65,1.02 0.35,1 0.18,0.86 C0,0.7 0,0.4 0.1,0.24 C0.15,0.16 0.22,0.11 0.3,0.08Z"/></clipPath>' +
     '</defs></svg>';
 
-  // media: shows a labelled placeholder until the file in assets/ exists. Videos autoplay muted.
-  function media(src, label, cls) {
+  // Generated artwork fills every media slot until a real file loads, so nothing looks empty.
+  function art(kind, label) {
+    var NS = 'http://www.w3.org/2000/svg', s = document.createElementNS(NS, 'svg'), i, j;
+    s.setAttribute('viewBox', '0 0 100 100'); s.setAttribute('preserveAspectRatio', 'xMidYMid slice'); s.setAttribute('aria-hidden', 'true');
+    function add(t, a) { var e = document.createElementNS(NS, t); for (var k in a) e.setAttribute(k, a[k]); s.appendChild(e); return e; }
+    add('rect', { width: 100, height: 100, fill: 'var(--paper)' });
+    if (kind === 'grid') {
+      for (i = 0; i < 8; i++) for (j = 0; j < 8; j++)
+        add('circle', { cx: 10.5 + i * 11.2, cy: 10.5 + j * 11.2, r: (1.4 + (Math.sin(i * .9) + Math.cos(j * .7) + 2) / 4 * 4.6).toFixed(2), fill: (i + j) % 5 === 0 ? 'var(--tomato)' : 'var(--leaf)' });
+    } else if (kind === 'pulse') {
+      for (i = 0; i < 7; i++) {
+        var d = 'M0,' + (14 + i * 12).toFixed(1);
+        for (var x = 0; x <= 100; x += 4) d += ' L' + x + ',' + (14 + i * 12 + Math.sin(x * .22 + i * .8) * (3 + (i % 3) * 1.6)).toFixed(1);
+        add('path', { d: d, fill: 'none', stroke: i === 3 ? 'var(--tomato)' : 'var(--leaf)', 'stroke-width': i === 3 ? 2.4 : 1.3, 'stroke-linecap': 'round' });
+      }
+    } else if (kind === 'orbit') {
+      add('circle', { cx: 38, cy: 50, r: 30, fill: 'var(--leaf)', style: 'mix-blend-mode:var(--blend)' });
+      add('circle', { cx: 62, cy: 50, r: 30, fill: 'var(--tomato)', style: 'mix-blend-mode:var(--blend)' });
+      add('circle', { cx: 50, cy: 50, r: 44, fill: 'none', stroke: 'var(--leaf)', 'stroke-width': .6, 'stroke-dasharray': '1 3' });
+    } else if (kind === 'initials') {
+      add('rect', { width: 100, height: 100, fill: 'var(--leaf)', 'fill-opacity': .14 });
+      add('text', { x: 50, y: 62, 'text-anchor': 'middle', fill: 'var(--leaf)', 'font-size': 34, 'font-family': 'Young Serif,Georgia,serif' }).textContent =
+        String(label || '').replace(/[.,]/g, '').split(/\s+/).filter(function (w) { return /^[A-Za-z]/.test(w) && !/^(Ph|DBA|Dr)$/i.test(w); }).map(function (w) { return w[0]; }).slice(0, 2).join('').toUpperCase();
+    } else {
+      add('text', { x: 50, y: 54, 'text-anchor': 'middle', fill: 'var(--ink)', 'font-size': Math.min(13, 118 / Math.max(6, String(label).length)).toFixed(1), 'font-family': 'Young Serif,Georgia,serif' }).textContent = label;
+    }
+    return h('div', { class: 'ph' }, s);
+  }
+  // media: file/URL in the slot replaces the artwork once it loads. Videos autoplay muted.
+  function media(src, label, cls, kind) {
     var wrap = h('div', { class: 'slot ' + (cls || '') });
-    var ph = h('span', { class: 'ph', text: src ? 'Add ' + src : label });
+    var ph = art(kind, label);
     wrap.append(ph);
     if (!src) return wrap;
     var vid = /\.(mp4|webm|mov)$/i.test(src);
-    var el = vid ? document.createElement('video') : h('img', { alt: '', loading: 'lazy' });
+    var el = vid ? document.createElement('video') : h('img', { alt: label || '', loading: 'lazy' });
     if (vid) { el.muted = true; el.loop = true; el.autoplay = true; el.playsInline = true; el.preload = 'metadata'; el.setAttribute('muted', ''); }
     el.addEventListener(vid ? 'loadeddata' : 'load', function () { ph.remove(); });
     el.addEventListener('error', function () { el.remove(); });
@@ -53,7 +81,7 @@
     var nav = D.nav.map(function (n) { return h('a', { href: n.href || (home ? n.anchor : n.page) }, n.label); });
     nav.push(h('a', { class: 'nav-cta', href: home ? '#contact' : 'index.html#contact' }, 'Contact'));
     var brand = h('a', { class: 'brand', href: home ? '#top' : 'index.html', 'aria-label': D.site.name + ', home' });
-    brand.innerHTML = '<svg viewBox="0 0 34 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="var(--leaf)"/><circle cx="22" cy="12" r="10" fill="var(--tomato)" style="mix-blend-mode:var(--blend)"/></svg>';
+    brand.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13V3h18v18h-8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="miter"/><path d="M3 19h6" fill="none" stroke="var(--tomato)" stroke-width="2.6"/></svg>';
     brand.append(D.site.name);
     $('#site-header').append(h('div', { class: 'bar' }, brand, h('nav', { 'aria-label': 'Primary' }, nav)));
     var c = D.contact;
@@ -67,7 +95,7 @@
     D.themes.forEach(function (t, i) {
       m.append(h('section', { class: 'scene', 'data-bg': t.bg, 'data-fg': t.fg },
         h('div', {}, h('h2', { text: t.title }), h('p', { text: t.text })),
-        h('div', { class: 'scene-media' }, media(t.media, t.title, MASKS[(i + 1) % 4]))));
+        h('div', { class: 'scene-media' }, media(t.media, t.title, MASKS[(i + 1) % 4], t.art || 'orbit'))));
     });
   }
 
@@ -82,7 +110,7 @@
 
   function renderNet(D) {
     var svg = $('#net'); if (!svg) return;
-    var NS = 'http://www.w3.org/2000/svg', cx = 500, cy = 380, cap = $('#net-cap'), idle = 'Hover or tap a node.', n = 0;
+    var NS = 'http://www.w3.org/2000/svg', cx = 500, cy = 380, cap = $('#net-cap'), idle = '', n = 0;
     function el(t, a, p) { var e = document.createElementNS(NS, t); for (var k in a) e.setAttribute(k, a[k]); (p || svg).appendChild(e); return e; }
     function ring(list, rx, ry, start, step, cls) {
       list.forEach(function (d, i) {
@@ -107,7 +135,7 @@
   function renderPortfolio(D) {
     var t = $('#track'), l = $('#pfgrid');
     D.portfolio.forEach(function (p, i) {
-      var card = function () { return h('a', { class: 'card', href: p.url }, media(p.media, p.name, MASKS[i % 4]), h('h3', { text: p.name }), p.note ? h('small', { text: p.note }) : null); };
+      var card = function () { return h('a', { class: 'card', href: p.url }, media(p.media, p.name, MASKS[i % 4] + ' logo', 'wordmark'), h('h3', { text: p.name }), p.note ? h('small', { text: p.note }) : null); };
       if (t) t.append(card());
       if (l) l.append(card());
     });
@@ -123,7 +151,7 @@
       dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
     }
     D.people.forEach(function (p, i) {
-      var inner = [media(p.photo, p.name, MASKS[i % 4]), h('h3', { text: p.name }), p.role ? h('small', { text: p.role }) : null];
+      var inner = [media(p.photo, p.name, MASKS[i % 4], 'initials'), h('h3', { text: p.name }), p.role ? h('small', { text: p.role }) : null];
       if (home) {
         var b = h('button', { class: 'person', type: 'button' }, inner);
         b.addEventListener('click', function () {

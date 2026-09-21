@@ -4,10 +4,7 @@ All files sit in one folder so they can be uploaded with GitHub's normal "Upload
 
 - `index.html`, `people.html`, `portfolio.html`, `ecosystem.html`: the pages
 - `site.json`: ALL text, links, numbers, people, portfolio and news. Edit this file to change content.
-- `style.css`, `render.js`, `motion.js`: design and animation (developers only)
-- Photos and videos: upload them to the same folder, using the file names in `PHOTO-NAMES.txt` (or change the name in `site.json`). `.mp4` / `.webm` play as looping muted video.
+- `style.css`, `render.js`, `motion.js`: design and animation (developers only). Brand colours are the variables at the top of `style.css`.
+- Images: every slot shows generated artwork until a real image loads. Portraits load from the old site, logos from public icons. To replace any, upload a file to this folder and put its name in `site.json` (see `PHOTO-NAMES.txt`).
 
-Until a photo exists, its slot shows a labelled placeholder.
-
-To test locally, serve the folder: `python3 -m http.server 8000`, then open http://localhost:8000
-The mailing-list form does nothing until `formAction` in `site.json` is set to a form service URL.
+To test locally: `python3 -m http.server 8000`, then open http://localhost:8000
