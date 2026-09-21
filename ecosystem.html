@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Ecosystem | The March Group</title>
-<meta name="description" content="The March Group is backing exponential technology platforms for human and planetary health, and a new food paradigm.">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<title>Ecosystem | The March Group</title>
+<meta name="description" content="The March Group is backing exponential technology platforms for human and planetary health, and a new food paradigm.">
 </head>
 <body class="sub-page" data-page="ecosystem">
 <header id="site-header" class="site-header"></header>
-<main>
-<h1 data-text="sections.ecosystemPage"></h1>
-<div class="stats" id="stats"></div>
-<h2 data-text="sections.network"></h2>
-<ul class="plain-list" id="partners-list"></ul>
-<h2 data-text="sections.news"></h2>
-<div class="nlist" id="news"></div>
+<main class="flush">
+<section class="eco" data-bg="var(--eco)" data-fg="var(--ink)">
+  <h1 class="sec-h" data-text="sections.ecosystemPage"></h1>
+  <div class="stats" id="stats"></div>
+  <h2 class="net-h" data-text="sections.network"></h2>
+  <svg id="net" viewBox="0 0 1000 760" role="group" aria-label="Network of anchor institutions and partners"></svg>
+  <p class="cap-net" id="net-cap" aria-live="polite"></p>
+</section>
 </main>
 <footer id="site-footer"></footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="render.js"></script>
+<script src="motion.js"></script>
 </body>
 </html>

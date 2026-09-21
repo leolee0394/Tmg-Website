@@ -7,18 +7,19 @@
   "nav": [
     {
       "label": "People",
-      "page": "people.html",
-      "anchor": "#people"
+      "page": "people.html"
     },
     {
       "label": "Portfolio",
-      "page": "portfolio.html",
-      "anchor": "#portfolio"
+      "page": "portfolio.html"
     },
     {
       "label": "Ecosystem",
-      "page": "ecosystem.html",
-      "anchor": "#ecosystem"
+      "page": "ecosystem.html"
+    },
+    {
+      "label": "News",
+      "page": "news.html"
     },
     {
       "label": "Accelerator",
@@ -44,13 +45,16 @@
     "contactSub": "Pitch us at investment@marchfund.com, or join the mailing list for news and ideas.",
     "peoplePage": "People",
     "portfolioPage": "Portfolio",
-    "ecosystemPage": "Ecosystem"
+    "ecosystemPage": "Ecosystem",
+    "explore": "Explore The March Group",
+    "newsPage": "In the loop",
+    "contactPage": "Get in touch"
   },
   "themes": [
     {
       "title": "Precision nutrition",
       "text": "Nutrition tailored to the individual and measured with real data.",
-      "media": "theme-precision-nutrition.jpg",
+      "media": "https://static.wixstatic.com/media/6997d9_2c73bf13dba54fb783a409567baa10d2~mv2.webp/v1/fill/w_980,h_776,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/meati.webp",
       "bg": "var(--scene-a)",
       "fg": "var(--ink)",
       "art": "grid"
@@ -58,7 +62,7 @@
     {
       "title": "Intelligent health",
       "text": "Technology that makes health proactive, personal and predictive.",
-      "media": "theme-intelligent-health.jpg",
+      "media": "https://static.wixstatic.com/media/6997d9_73007947e93b4e7cb78b9656f5dc4582~mv2.webp/v1/fill/w_980,h_653,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/02-IIFHPartnerSummit-19-scaled.webp",
       "bg": "var(--scene-b)",
       "fg": "var(--ink)",
       "art": "pulse"
@@ -66,7 +70,7 @@
     {
       "title": "Food & medicine",
       "text": "A food system that prevents and treats, not only feeds.",
-      "media": "theme-food-medicine.jpg",
+      "media": "https://static.wixstatic.com/media/6997d9_af36f04ec24449789139923aa4d37422~mv2.webp/v1/fill/w_980,h_1307,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/rivalz.webp",
       "bg": "var(--scene-c)",
       "fg": "var(--ink)",
       "art": "orbit"
@@ -284,5 +288,31 @@
     "linkedin": "https://www.linkedin.com/company/themarchgroup/",
     "privacy": "https://www.marchgp.com/privacy-policy",
     "terms": "https://www.marchgp.com/terms-of-use"
-  }
+  },
+  "explore": [
+    {
+      "title": "People",
+      "text": "Meet the team.",
+      "page": "people.html",
+      "art": "orbit"
+    },
+    {
+      "title": "Portfolio",
+      "text": "The companies we back.",
+      "page": "portfolio.html",
+      "art": "grid"
+    },
+    {
+      "title": "Ecosystem",
+      "text": "The network behind them.",
+      "page": "ecosystem.html",
+      "art": "rings"
+    },
+    {
+      "title": "News",
+      "text": "What is happening now.",
+      "page": "news.html",
+      "art": "pulse"
+    }
+  ]
 }

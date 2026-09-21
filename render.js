@@ -51,6 +51,9 @@
       add('circle', { cx: 38, cy: 50, r: 30, fill: 'var(--leaf)', style: 'mix-blend-mode:var(--blend)' });
       add('circle', { cx: 62, cy: 50, r: 30, fill: 'var(--tomato)', style: 'mix-blend-mode:var(--blend)' });
       add('circle', { cx: 50, cy: 50, r: 44, fill: 'none', stroke: 'var(--leaf)', 'stroke-width': .6, 'stroke-dasharray': '1 3' });
+    } else if (kind === 'rings') {
+      for (i = 0; i < 6; i++) add('circle', { cx: 50, cy: 50, r: 8 + i * 8, fill: 'none', stroke: i % 3 === 1 ? 'var(--tomato)' : 'var(--leaf)', 'stroke-width': i % 3 === 1 ? 2.2 : 1.1 });
+      add('circle', { cx: 50, cy: 50, r: 4, fill: 'var(--tomato)' });
     } else if (kind === 'initials') {
       add('rect', { width: 100, height: 100, fill: 'var(--leaf)', 'fill-opacity': .14 });
       add('text', { x: 50, y: 62, 'text-anchor': 'middle', fill: 'var(--leaf)', 'font-size': 34, 'font-family': 'Young Serif,Georgia,serif' }).textContent =
@@ -78,9 +81,9 @@
   var MASKS = ['mk1', 'mk2', 'mk3', 'mk4'];
 
   function renderChrome(D) {
-    var nav = D.nav.map(function (n) { return h('a', { href: n.href || (home ? n.anchor : n.page) }, n.label); });
-    nav.push(h('a', { class: 'nav-cta', href: home ? '#contact' : 'index.html#contact' }, 'Contact'));
-    var brand = h('a', { class: 'brand', href: home ? '#top' : 'index.html', 'aria-label': D.site.name + ', home' });
+    var nav = D.nav.map(function (n) { return h('a', { href: n.href || n.page }, n.label); });
+    nav.push(h('a', { class: 'nav-cta', href: 'contact.html' }, 'Contact'));
+    var brand = h('a', { class: 'brand', href: 'index.html', 'aria-label': D.site.name + ', home' });
     brand.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13V3h18v18h-8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="miter"/><path d="M3 19h6" fill="none" stroke="var(--tomato)" stroke-width="2.6"/></svg>';
     brand.append(D.site.name);
     $('#site-header').append(h('div', { class: 'bar' }, brand, h('nav', { 'aria-label': 'Primary' }, nav)));
@@ -97,6 +100,21 @@
         h('div', {}, h('h2', { text: t.title }), h('p', { text: t.text })),
         h('div', { class: 'scene-media' }, media(t.media, t.title, MASKS[(i + 1) % 4], t.art || 'orbit'))));
     });
+  }
+
+  function renderExplore(D) {
+    var m = $('#explore'); if (!m) return;
+    D.explore.forEach(function (t, i) {
+      m.append(h('a', { class: 'tile', href: t.page }, media('', t.title, MASKS[i % 4], t.art), h('h3', { text: t.title }), h('p', { text: t.text })));
+    });
+  }
+
+  function renderContact(D) {
+    var m = $('#contact-lines'); if (!m) return;
+    var c = D.contact;
+    m.append(h('p', {}, h('small', { text: 'Deals' }), h('br'), h('a', { href: 'mailto:' + c.deals }, c.deals)),
+      h('p', {}, h('small', { text: 'Inquiries and press' }), h('br'), h('a', { href: 'mailto:' + c.press }, c.press)),
+      h('p', {}, h('a', { href: c.linkedin }, 'LinkedIn')));
   }
 
   function renderStats(D) {
@@ -192,7 +210,7 @@
   function apply(D) {
     document.body.insertAdjacentHTML('afterbegin', DEFS);
     $$('[data-text]').forEach(function (e) { var v = get(D, e.dataset.text); if (v != null) e.textContent = v; });
-    renderChrome(D); renderThemes(D); renderStats(D); renderNet(D); renderPortfolio(D);
+    renderChrome(D); renderThemes(D); renderExplore(D); renderContact(D); renderStats(D); renderNet(D); renderPortfolio(D);
     renderPeople(D); renderNews(D); renderPartnersList(D); renderForm(D);
     window.TMG_READY = true;
     document.dispatchEvent(new Event('tmg:ready'));
