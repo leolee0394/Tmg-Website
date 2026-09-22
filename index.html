@@ -5,44 +5,60 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Newsreader:opsz,wght@6..72,300..500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <title>Thematic VC | The March Group</title>
 <meta name="description" content="The March Group is backing exponential technology platforms for human and planetary health, and a new food paradigm.">
+<script>if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('motion');</script>
 </head>
 <body data-page="home" id="top">
+<a class="skip" href="#main">Skip to content</a>
 <header id="site-header" class="site-header"></header>
-<main>
-  <section class="story" data-bg="var(--lichen)" data-fg="var(--ink)">
-    <div class="caps">
-      <div class="cap cap1"><h1 data-text="hero.headline"></h1><p class="hint">Scroll</p></div>
-      <div class="cap cap2">
-        <p class="split"><span class="dot a"></span><span data-text="hero.food"></span></p>
-        <p class="split"><span class="dot b"></span><span data-text="hero.medicine"></span></p>
-        <p class="line" data-text="hero.splitLine"></p>
+<main id="main">
+  <section class="story" aria-label="Introduction">
+    <div class="rules" aria-hidden="true"><i style="left:6%"></i><i style="left:35.3%"></i><i style="left:64.6%"></i><i style="left:94%"></i></div>
+    <div class="s1"><h1 data-text="hero.headline"></h1></div>
+    <div class="s2">
+      <div class="frame a"><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M100,0H0V100"/></svg><p class="word" data-text="hero.food"></p></div>
+      <div class="frame b"><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,100H100V0"/></svg><p class="word" data-text="hero.medicine"></p></div>
+      <p class="caption" data-text="hero.splitLine"></p>
+      <div class="panel">
+        <h2 data-text="hero.merged"></h2>
+        <p data-text="hero.sub"></p>
+        <p><a href="people.html" data-text="sections.teamLink"></a></p>
       </div>
-      <div class="cap cap3"><h2 data-text="hero.merged"></h2><p class="sub" data-text="hero.sub"></p><a class="btn" href="contact.html">Send us a deal</a></div>
     </div>
-    <div class="stage">
-      <svg id="stage" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Two organic shapes, food and medicine, split apart and then interlock">
-        <g id="grow"><path id="shA"/><path id="shB"/></g>
-      </svg>
+    <div class="prog" aria-hidden="true"></div>
+  </section>
+
+  <section class="sec wrap">
+    <h2 class="sec-h" data-text="sections.themes"></h2>
+    <div id="themes"></div>
+  </section>
+
+  <section class="sec wrap">
+    <h2 class="sec-h" data-text="sections.numbers"></h2>
+    <div class="stats" id="stats"></div>
+  </section>
+
+  <section class="sec wrap">
+    <div class="sec-head"><h2 class="sec-h" data-text="sections.portfolio"></h2><a href="portfolio.html" data-text="sections.portfolioLink"></a></div>
+    <div class="pfgrid" id="pfgrid"></div>
+  </section>
+
+  <section class="sec wrap">
+    <div class="sec-head"><h2 class="sec-h" data-text="sections.news"></h2><a href="news.html" data-text="sections.newsLink"></a></div>
+    <div class="nlist" id="news"></div>
+  </section>
+
+  <section class="close">
+    <div class="wrap">
+      <h2 data-text="sections.contact"></h2>
+      <p data-text="sections.contactSub"></p>
+      <p><a class="btn" href="contact.html" data-text="sections.closeButton"></a></p>
     </div>
   </section>
-
-  <div class="themes-intro" data-bg="var(--lichen)" data-fg="var(--ink)"><h2 class="sec-h" data-text="sections.themes"></h2></div>
-  <div id="themes"></div>
-
-  <section class="explore" data-bg="var(--lichen)" data-fg="var(--ink)">
-    <h2 class="sec-h" data-text="sections.explore"></h2>
-    <div class="tiles" id="explore"></div>
-  </section>
-
-  <section class="close" data-bg="var(--close)" data-fg="#FFFFFF">
-    <h2 data-text="sections.contact"></h2>
-    <p class="lede" data-text="sections.contactSub"></p>
-    <div class="cta"><a class="btn" href="mailto:investment@marchfund.com">Pitch us</a><a class="btn ghost" href="contact.html">Contact and mailing list</a></div>
-  </section>
+  <noscript><p class="wrap">This site needs JavaScript to show its content.</p></noscript>
 </main>
 <footer id="site-footer"></footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>

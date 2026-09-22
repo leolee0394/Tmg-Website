@@ -35,45 +35,45 @@
     "sub": "The March Group backs exponential technology platforms for human and planetary health, and for a new food paradigm."
   },
   "sections": {
-    "themes": "Precision nutrition. Intelligent health. Food & medicine.",
+    "themes": "Where we invest",
     "ecosystem": "A world-class ecosystem, anchored in the UC system.",
     "network": "Our strategic global network",
     "portfolio": "Portfolio",
     "people": "We are innovation pioneers.",
     "news": "In the loop",
-    "contact": "Send us a deal.",
-    "contactSub": "Pitch us at investment@marchfund.com, or join the mailing list for news and ideas.",
+    "contact": "Get in touch.",
+    "contactSub": "Write to us about investments, press or partnerships, or join the mailing list for news and ideas.",
     "peoplePage": "People",
     "portfolioPage": "Portfolio",
     "ecosystemPage": "Ecosystem",
-    "explore": "Explore The March Group",
     "newsPage": "In the loop",
-    "contactPage": "Get in touch"
+    "contactPage": "Get in touch",
+    "numbers": "The University of California system, by the numbers.",
+    "ecosystemAnchors": "Anchor institutions",
+    "ecosystemPartners": "Partners and collaborators",
+    "mailing": "Join our mailing list",
+    "mailingSub": "A periodic collection of news and ideas.",
+    "portfolioLink": "All portfolio",
+    "newsLink": "All news",
+    "closeButton": "Contact us",
+    "teamLink": "Meet the team",
+    "contactNav": "Contact"
   },
   "themes": [
     {
       "title": "Precision nutrition",
       "text": "Nutrition tailored to the individual and measured with real data.",
-      "media": "https://static.wixstatic.com/media/6997d9_2c73bf13dba54fb783a409567baa10d2~mv2.webp/v1/fill/w_980,h_776,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/meati.webp",
-      "bg": "var(--scene-a)",
-      "fg": "var(--ink)",
-      "art": "grid"
+      "media": "https://static.wixstatic.com/media/6997d9_2c73bf13dba54fb783a409567baa10d2~mv2.webp/v1/fill/w_980,h_776,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/meati.webp"
     },
     {
       "title": "Intelligent health",
       "text": "Technology that makes health proactive, personal and predictive.",
-      "media": "https://static.wixstatic.com/media/6997d9_73007947e93b4e7cb78b9656f5dc4582~mv2.webp/v1/fill/w_980,h_653,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/02-IIFHPartnerSummit-19-scaled.webp",
-      "bg": "var(--scene-b)",
-      "fg": "var(--ink)",
-      "art": "pulse"
+      "media": "https://static.wixstatic.com/media/6997d9_73007947e93b4e7cb78b9656f5dc4582~mv2.webp/v1/fill/w_980,h_653,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/02-IIFHPartnerSummit-19-scaled.webp"
     },
     {
       "title": "Food & medicine",
       "text": "A food system that prevents and treats, not only feeds.",
-      "media": "https://static.wixstatic.com/media/6997d9_af36f04ec24449789139923aa4d37422~mv2.webp/v1/fill/w_980,h_1307,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/rivalz.webp",
-      "bg": "var(--scene-c)",
-      "fg": "var(--ink)",
-      "art": "orbit"
+      "media": "https://static.wixstatic.com/media/6997d9_af36f04ec24449789139923aa4d37422~mv2.webp/v1/fill/w_980,h_1307,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/rivalz.webp"
     }
   ],
   "stats": [
@@ -267,19 +267,22 @@
       "title": "Humann names Dr. Harold Schmitz Science Advisory Chair and announces a nutrition research partnership with the UC Davis Innovation Institute for Food & Health",
       "date": "Latest",
       "tag": "",
-      "url": "https://www.marchgp.com/post/humann-names-dr-harold-schmitz-science-advisory-chair-and-announces-nutrition-research-partnership"
+      "url": "https://www.marchgp.com/post/humann-names-dr-harold-schmitz-science-advisory-chair-and-announces-nutrition-research-partnership",
+      "image": "https://static.wixstatic.com/media/9c3d55_eb0e6059c06541b8a331e7e483790bc7~mv2.jpg/v1/fill/w_305,h_305,fp_0.50_0.50,q_90,enc_avif,quality_auto/9c3d55_eb0e6059c06541b8a331e7e483790bc7~mv2.webp"
     },
     {
       "title": "Aggie Venture Accelerator welcomes its inaugural cohort of life science startups",
       "date": "Jul 15",
       "tag": "TMG News",
-      "url": "https://www.marchgp.com/post/aggie-venture-accelerator-welcomes-inaugural-cohort-of-life-science-startupscopy-of-uc-davis-launche"
+      "url": "https://www.marchgp.com/post/aggie-venture-accelerator-welcomes-inaugural-cohort-of-life-science-startupscopy-of-uc-davis-launche",
+      "image": "https://static.wixstatic.com/media/9c3d55_b4216a938b134df790fe4a55ee2b68b8~mv2.png/v1/fill/w_306,h_305,fp_0.50_0.50,q_95,enc_avif,quality_auto/9c3d55_b4216a938b134df790fe4a55ee2b68b8~mv2.webp"
     },
     {
       "title": "Backing the future of savory snacking: The March Group leads Rivalz Series A",
       "date": "Jul 6",
       "tag": "Portfolio Updates",
-      "url": "https://www.marchgp.com/post/backing-the-future-of-savory-snacking-the-march-group-leads-rivalz-series-a"
+      "url": "https://www.marchgp.com/post/backing-the-future-of-savory-snacking-the-march-group-leads-rivalz-series-a",
+      "image": "https://static.wixstatic.com/media/6997d9_4ed9cdb981034e9c9e5d87a3d555d5a2~mv2.webp/v1/fill/w_305,h_305,al_c,q_90,enc_avif,quality_auto/6997d9_4ed9cdb981034e9c9e5d87a3d555d5a2~mv2.webp"
     }
   ],
   "contact": {
@@ -287,32 +290,8 @@
     "deals": "investment@marchfund.com",
     "linkedin": "https://www.linkedin.com/company/themarchgroup/",
     "privacy": "https://www.marchgp.com/privacy-policy",
-    "terms": "https://www.marchgp.com/terms-of-use"
-  },
-  "explore": [
-    {
-      "title": "People",
-      "text": "Meet the team.",
-      "page": "people.html",
-      "art": "orbit"
-    },
-    {
-      "title": "Portfolio",
-      "text": "The companies we back.",
-      "page": "portfolio.html",
-      "art": "grid"
-    },
-    {
-      "title": "Ecosystem",
-      "text": "The network behind them.",
-      "page": "ecosystem.html",
-      "art": "rings"
-    },
-    {
-      "title": "News",
-      "text": "What is happening now.",
-      "page": "news.html",
-      "art": "pulse"
-    }
-  ]
+    "terms": "https://www.marchgp.com/terms-of-use",
+    "dealsLabel": "Investment inquiries",
+    "pressLabel": "Inquiries and press"
+  }
 }
