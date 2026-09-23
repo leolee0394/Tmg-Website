@@ -6,7 +6,7 @@
   },
   "nav": [
     {
-      "label": "People",
+      "label": "Team",
       "page": "people.html"
     },
     {
@@ -14,16 +14,20 @@
       "page": "portfolio.html"
     },
     {
-      "label": "Ecosystem",
-      "page": "ecosystem.html"
+      "label": "What We Do",
+      "children": [
+        { "label": "Overview", "page": "what-we-do.html" },
+        { "label": "Ecosystem", "page": "ecosystem.html" },
+        { "label": "Accelerator", "href": "https://iedo.ucdavis.edu/aggie-venture-accelerator" }
+      ]
     },
     {
-      "label": "News",
-      "page": "news.html"
-    },
-    {
-      "label": "Accelerator",
-      "href": "https://iedo.ucdavis.edu/aggie-venture-accelerator"
+      "label": "About",
+      "children": [
+        { "label": "About", "page": "about.html" },
+        { "label": "News", "page": "news.html" },
+        { "label": "Contact", "page": "contact.html" }
+      ]
     }
   ],
   "hero": {
@@ -35,7 +39,7 @@
     "sub": "The March Group backs exponential technology platforms for human and planetary health, and for a new food paradigm."
   },
   "sections": {
-    "themes": "Where we invest",
+    "themes": "Areas of focus",
     "ecosystem": "A world-class ecosystem, anchored in the UC system.",
     "network": "Our strategic global network",
     "portfolio": "Portfolio",
@@ -48,7 +52,7 @@
     "ecosystemPage": "Ecosystem",
     "newsPage": "In the loop",
     "contactPage": "Get in touch",
-    "numbers": "The University of California system, by the numbers.",
+    "numbers": "The University of California system, by the numbers",
     "ecosystemAnchors": "Anchor institutions",
     "ecosystemPartners": "Partners and collaborators",
     "mailing": "Join our mailing list",
@@ -57,7 +61,12 @@
     "newsLink": "All news",
     "closeButton": "Contact us",
     "teamLink": "Meet the team",
-    "contactNav": "Contact"
+    "contactNav": "Contact",
+    "whatWeDoPage": "What We Do",
+    "whatWeDoIntro": "We back the theses others haven't named yet -- mapping emerging categories at the intersection of food and health, then backing the founders building inside them.",
+    "aboutPage": "About",
+    "aboutIntro": "The March Group is a thematic venture firm backing exponential technology platforms for human and planetary health, and a new food paradigm. We work closely with a world-class ecosystem anchored in the UC system to find and support founders early.",
+    "aboutTeamLink": "Meet the team"
   },
   "themes": [
     {

@@ -25,25 +25,14 @@
   }
   function get(o, path) { return path.split('.').reduce(function (a, k) { return a == null ? a : a[k]; }, o); }
 
-  // Generated artwork fills a media slot until a real image loads, so nothing looks empty.
-  // Flat tonal tiles only -- no colored blocks, no illustration.
+  // No decorative artwork in this tier: an empty media slot is a plain bordered
+  // monogram tile (initials, type only), not an illustration or diagram.
   function art(label) {
-    var NS = 'http://www.w3.org/2000/svg', s = document.createElementNS(NS, 'svg');
-    s.setAttribute('viewBox', '0 0 100 100');
-    s.setAttribute('preserveAspectRatio', 'xMidYMid slice');
-    s.setAttribute('aria-hidden', 'true');
-    function add(t, a) { var e = document.createElementNS(NS, t); for (var k in a) e.setAttribute(k, a[k]); s.appendChild(e); return e; }
-    add('rect', { width: 100, height: 100, fill: 'var(--paper)' });
-    add('rect', { x: 0, y: 0, width: 100, height: 100, fill: 'none', stroke: 'var(--rule)', 'stroke-width': 0.6 });
-    add('rect', { x: 8, y: 8, width: 28, height: 28, fill: 'var(--navy)', 'fill-opacity': 0.08 });
-    add('rect', { x: 62, y: 62, width: 30, height: 30, fill: 'var(--orange)', 'fill-opacity': 0.14 });
     var initials = String(label || '').replace(/[.,()]/g, '').split(/\s+/)
       .filter(function (w) { return /^[A-Za-z]/.test(w) && !/^(Ph|DBA|Dr)$/i.test(w); })
       .map(function (w) { return w[0]; }).slice(0, 2).join('').toUpperCase();
-    if (initials) add('text', { x: 50, y: 58, 'text-anchor': 'middle', fill: 'var(--navy)', 'font-size': 22, 'font-family': 'Newsreader,Georgia,serif' }).textContent = initials;
-    return h('div', { class: 'ph' }, s);
+    return h('div', { class: 'ph' }, h('span', { text: initials }));
   }
-  // media: file/URL in the slot replaces the artwork once it loads.
   function media(src, label, cls) {
     var wrap = h('div', { class: 'slot ' + (cls || '') });
     var ph = art(label);
@@ -57,11 +46,28 @@
     return wrap;
   }
 
+  function navItem(n) {
+    if (!n.children) return h('a', { href: n.href || n.page }, n.label);
+    var item = h('div', { class: 'nav-item' });
+    var trigger = h('button', { class: 'nav-trigger', type: 'button', 'aria-expanded': 'false' }, n.label, h('span', { class: 'nav-caret', 'aria-hidden': 'true' }, ''));
+    var sub = h('div', { class: 'submenu' }, n.children.map(function (c) {
+      return h('a', { href: c.href || c.page }, c.label);
+    }));
+    trigger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = item.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      $$('.nav-item.open').forEach(function (o) { if (o !== item) { o.classList.remove('open'); $('.nav-trigger', o).setAttribute('aria-expanded', 'false'); } });
+    });
+    item.append(trigger, sub);
+    return item;
+  }
+
   function renderChrome(D) {
-    var nav = D.nav.map(function (n) { return h('a', { href: n.href || n.page }, n.label); });
+    var nav = D.nav.map(navItem);
     nav.push(h('a', { class: 'nav-cta', href: 'contact.html' }, D.sections.contactNav || 'Contact'));
     var brand = h('a', { class: 'brand', href: 'index.html', 'aria-label': D.site.name + ', home' });
-    brand.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13V3h18v18h-8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter"/><path d="M3 19h6" fill="none" stroke="var(--orange)" stroke-width="2.4"/></svg>';
+    brand.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13V3h18v18h-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="miter"/><path d="M3 19h6" fill="none" stroke="var(--orange)" stroke-width="2.2"/></svg>';
     brand.append(D.site.name);
     var burger = h('button', { class: 'burger', type: 'button', 'aria-label': 'Menu', 'aria-expanded': 'false' }, h('span'), h('span'), h('span'));
     var navEl = h('nav', { 'aria-label': 'Primary' }, nav);
@@ -69,21 +75,56 @@
       var open = document.body.classList.toggle('nav-open');
       burger.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
+    document.addEventListener('click', function () {
+      $$('.nav-item.open').forEach(function (o) { o.classList.remove('open'); $('.nav-trigger', o).setAttribute('aria-expanded', 'false'); });
+    });
     $('#site-header').append(h('div', { class: 'bar wrap' }, brand, navEl, burger));
     var c = D.contact;
     $('#site-footer').append(h('div', { class: 'cols wrap' },
       h('div', {}, h('p', { class: 'fname', text: D.site.name }),
-        h('p', {}, (D.contact.pressLabel || 'Inquiries and press') + ': ', h('a', { href: 'mailto:' + c.press }, c.press)),
-        h('p', {}, (D.contact.dealsLabel || 'Investment inquiries') + ': ', h('a', { href: 'mailto:' + c.deals }, c.deals))),
+        h('p', {}, (c.pressLabel || 'Inquiries and press') + ': ', h('a', { href: 'mailto:' + c.press }, c.press)),
+        h('p', {}, (c.dealsLabel || 'Investment inquiries') + ': ', h('a', { href: 'mailto:' + c.deals }, c.deals))),
       h('div', {}, h('p', {}, h('a', { href: c.linkedin }, 'LinkedIn')), h('p', {}, h('a', { href: c.privacy }, 'Privacy policy')), h('p', {}, h('a', { href: c.terms }, 'Terms of use')))));
   }
 
+  // Original line-art diagrams, one per theme -- not stock photography, so there's
+  // no licensing question, and the thin-stroke navy/orange style matches the rest
+  // of the site rather than sitting on top of it as decoration.
+  var THEME_DIAGRAMS = [
+    // Precision nutrition: a plate viewed in plan, with a measured/targeted center
+    '<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+      '<circle cx="32" cy="32" r="26" stroke="currentColor" stroke-width="1.4" opacity=".35"/>' +
+      '<circle cx="32" cy="32" r="16" stroke="currentColor" stroke-width="1.4" opacity=".6"/>' +
+      '<circle cx="32" cy="32" r="3.4" fill="var(--orange)"/>' +
+      '<path d="M32 6v6M32 52v6M6 32h6M52 32h6" stroke="currentColor" stroke-width="1.4" opacity=".5"/>' +
+    '</svg>',
+    // Intelligent health: a pulse line running through connected nodes
+    '<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+      '<circle cx="32" cy="32" r="26" stroke="currentColor" stroke-width="1.4" opacity=".35"/>' +
+      '<path d="M12 34h8l4-10 6 18 5-13 3 5h14" stroke="var(--orange)" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>' +
+      '<circle cx="20" cy="34" r="2" fill="currentColor"/>' +
+      '<circle cx="44" cy="34" r="2" fill="currentColor"/>' +
+    '</svg>',
+    // Food & medicine: two overlapping fields converging, a leaf and a cross
+    '<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+      '<circle cx="25" cy="32" r="18" stroke="currentColor" stroke-width="1.4" opacity=".45"/>' +
+      '<circle cx="39" cy="32" r="18" stroke="currentColor" stroke-width="1.4" opacity=".45"/>' +
+      '<path d="M22 26c6 0 8 4 8 10-6 0-8-4-8-10z" fill="none" stroke="var(--orange)" stroke-width="1.5"/>' +
+      '<path d="M39 25v14M32 32h14" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round"/>' +
+    '</svg>'
+  ];
+
   function renderThemes(D) {
-    var m = $('#themes'); if (!m) return;
-    D.themes.forEach(function (t) {
+    var m = $('#themes-list'); if (!m) return;
+    D.themes.forEach(function (t, i) {
+      var icon = h('div', { class: 'theme-icon' });
+      icon.innerHTML = THEME_DIAGRAMS[i % THEME_DIAGRAMS.length];
       m.append(h('div', { class: 'theme-row' },
-        media(t.media, t.title, 'theme-media'),
-        h('div', { class: 'theme-copy' }, h('h3', { text: t.title }), h('p', { text: t.text }))));
+        h('span', { class: 'tnum', text: '0' + (i + 1) }),
+        h('div', { class: 'theme-body' },
+          h('h3', { class: 'theme-title', text: t.title }),
+          h('p', { class: 'theme-copy', text: t.text })),
+        icon));
     });
   }
 
@@ -117,7 +158,7 @@
   }
 
   function renderNews(D) {
-    var m = $('#news'); if (!m) return;
+    var m = $('#news-list') || $('#news'); if (!m) return;
     var list = home ? D.news.slice(0, 3) : D.news;
     list.forEach(function (n) {
       m.append(h('a', { class: 'nrow', href: n.url, target: '_blank', rel: 'noopener' },

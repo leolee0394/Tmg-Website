@@ -1,21 +1,26 @@
-/* One quiet reveal on the hero; everything else is static. Respects prefers-reduced-motion. */
+/* Quiet reveal: rows fade up into place as they scroll into view. No decorative
+   artwork -- the structural journal layout is the differentiator for this tier. */
 (function () {
   'use strict';
   function run() {
     if (!document.documentElement.classList.contains('motion')) return;
-    var s1 = document.querySelector('.s1');
-    var s2 = document.querySelector('.s2');
-    var frameA = document.querySelector('.frame.a');
-    var frameB = document.querySelector('.frame.b');
-    if (!s1) return;
+    var targets = Array.prototype.slice.call(
+      document.querySelectorAll('.theme-row, .stat, .pcard, .nrow, .close')
+    );
+    if (!targets.length) return;
+    targets.forEach(function (t) { t.classList.add('reveal'); });
 
-    requestAnimationFrame(function () { s1.classList.add('in'); });
-    setTimeout(function () { if (frameA) frameA.classList.add('in'); }, 420);
-    setTimeout(function () { if (frameB) frameB.classList.add('in'); }, 620);
-    setTimeout(function () { if (s2) s2.classList.add('in'); }, 900);
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+        });
+      }, { threshold: 0.2 });
+      targets.forEach(function (t) { io.observe(t); });
+    } else {
+      targets.forEach(function (t) { t.classList.add('in'); });
+    }
   }
-  if (document.body.dataset.page === 'home') {
-    if (window.TMG_READY) run();
-    else document.addEventListener('tmg:ready', run, { once: true });
-  }
+  if (window.TMG_READY) run();
+  else document.addEventListener('tmg:ready', run, { once: true });
 })();

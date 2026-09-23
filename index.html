@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Newsreader:opsz,wght@6..72,300..500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340..680&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <title>Thematic VC | The March Group</title>
 <meta name="description" content="The March Group is backing exponential technology platforms for human and planetary health, and a new food paradigm.">
@@ -15,54 +15,47 @@
 <a class="skip" href="#main">Skip to content</a>
 <header id="site-header" class="site-header"></header>
 <main id="main">
-  <section class="story" aria-label="Introduction">
-    <div class="rules" aria-hidden="true"><i style="left:6%"></i><i style="left:35.3%"></i><i style="left:64.6%"></i><i style="left:94%"></i></div>
-    <div class="s1"><h1 data-text="hero.headline"></h1></div>
-    <div class="s2">
-      <div class="frame a"><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M100,0H0V100"/></svg><p class="word" data-text="hero.food"></p></div>
-      <div class="frame b"><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,100H100V0"/></svg><p class="word" data-text="hero.medicine"></p></div>
-      <p class="caption" data-text="hero.splitLine"></p>
-      <div class="panel">
-        <h2 data-text="hero.merged"></h2>
-        <p data-text="hero.sub"></p>
-        <p><a href="people.html" data-text="sections.teamLink"></a></p>
-      </div>
+  <div class="journal wrap">
+    <div class="journal-body">
+
+      <section class="hero">
+        <p class="eyebrow" data-text="hero.splitLine"></p>
+        <h1 data-text="hero.headline"></h1>
+        <p class="lede" data-text="hero.sub"></p>
+        <p><a class="link" href="people.html" data-text="sections.teamLink"></a></p>
+      </section>
+
+      <section class="sec" id="themes">
+        <div class="panel-head"><span class="tag">01</span><h2 class="sec-h" data-text="sections.themes"></h2></div>
+        <div id="themes-list"></div>
+      </section>
+
+      <section class="sec panel grid-tint" id="numbers">
+        <div class="panel-head"><span class="tag">02</span><h2 class="sec-h" data-text="sections.numbers"></h2></div>
+        <div class="stats" id="stats"></div>
+      </section>
+
+      <section class="sec" id="portfolio">
+        <div class="sec-head"><div class="panel-head"><span class="tag">03</span><h2 class="sec-h" data-text="sections.portfolio"></h2></div><a href="portfolio.html" data-text="sections.portfolioLink"></a></div>
+        <div class="pfgrid" id="pfgrid"></div>
+      </section>
+
+      <section class="sec" id="news">
+        <div class="sec-head"><div class="panel-head"><span class="tag">04</span><h2 class="sec-h" data-text="sections.news"></h2></div><a href="news.html" data-text="sections.newsLink"></a></div>
+        <div class="nlist" id="news-list"></div>
+      </section>
+
+      <section class="close">
+        <h2 data-text="sections.contact"></h2>
+        <p data-text="sections.contactSub"></p>
+        <p><a class="btn" href="contact.html" data-text="sections.closeButton"></a></p>
+      </section>
+
     </div>
-    <div class="prog" aria-hidden="true"></div>
-  </section>
-
-  <section class="sec wrap">
-    <h2 class="sec-h" data-text="sections.themes"></h2>
-    <div id="themes"></div>
-  </section>
-
-  <section class="sec wrap">
-    <h2 class="sec-h" data-text="sections.numbers"></h2>
-    <div class="stats" id="stats"></div>
-  </section>
-
-  <section class="sec wrap">
-    <div class="sec-head"><h2 class="sec-h" data-text="sections.portfolio"></h2><a href="portfolio.html" data-text="sections.portfolioLink"></a></div>
-    <div class="pfgrid" id="pfgrid"></div>
-  </section>
-
-  <section class="sec wrap">
-    <div class="sec-head"><h2 class="sec-h" data-text="sections.news"></h2><a href="news.html" data-text="sections.newsLink"></a></div>
-    <div class="nlist" id="news"></div>
-  </section>
-
-  <section class="close">
-    <div class="wrap">
-      <h2 data-text="sections.contact"></h2>
-      <p data-text="sections.contactSub"></p>
-      <p><a class="btn" href="contact.html" data-text="sections.closeButton"></a></p>
-    </div>
-  </section>
+  </div>
   <noscript><p class="wrap">This site needs JavaScript to show its content.</p></noscript>
 </main>
 <footer id="site-footer"></footer>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="render.js"></script>
 <script src="motion.js"></script>
 </body>
